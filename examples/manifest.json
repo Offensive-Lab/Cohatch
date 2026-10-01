@@ -1,0 +1,19 @@
+{
+  "format": "cohatch",
+  "version": 1,
+  "download_id": "a916471a5a8f7733ca694c04f65e4d202a421f5ac5c48742d348d15596246ad5",
+  "url": "https://example.com/model.safetensors",
+  "filename": "model.safetensors",
+  "file_size": 107374182400,
+  "chunk_size": 67108864,
+  "chunk_count": 1600,
+  "nodes": 2,
+  "source": {
+    "etag": "\"example-revision-1\"",
+    "last_modified": null,
+    "content_type": "application/octet-stream",
+    "final_url": "https://example.com/model.safetensors",
+    "accept_ranges": true
+  },
+  "expected_sha256": null
+}

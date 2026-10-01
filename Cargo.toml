@@ -1,0 +1,37 @@
+[package]
+name = "cohatch"
+version = "0.1.0"
+edition = "2024"
+description = "Durable, offline-combinable distributed HTTP range downloads"
+license = "MIT"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4.5", features = ["derive"] }
+fs2 = "0.4"
+futures-util = "0.3"
+hex = "0.4"
+httpdate = "1"
+indicatif = "0.18"
+rand = "0.9"
+reqwest = { version = "0.12", default-features = false, features = ["stream"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+tempfile = "3.27"
+thiserror = "2"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "fs", "io-util", "time", "signal", "sync"] }
+tokio-util = { version = "0.7", features = ["rt"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+url = { version = "2", features = ["serde"] }
+
+[target.'cfg(windows)'.dependencies]
+reqwest = { version = "0.12", default-features = false, features = ["native-tls"] }
+
+[target.'cfg(not(windows))'.dependencies]
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls"] }
+
+[profile.release]
+lto = "thin"
+strip = true
